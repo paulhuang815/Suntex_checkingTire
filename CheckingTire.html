@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>新增輪胎資訊</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-klmKj+w5rBm5c5q3l9xGx1DpLoze0oPhWMq6UzIcU8CKfUzSjYdiCvX9WxR8FJ4+y4QjKsFfdDw57QNJTRPSlw==" crossorigin="anonymous" />
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		form {
+			max-width: 600px;
+			margin: 0 auto;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+		}
+		h1 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		label {
+			display: block;
+			margin-bottom: 10px;
+			font-weight: bold;
+		}
+		input[type="text"], select {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			margin-bottom: 20px;
+		}
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			margin-bottom: 20px;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+		.remove {
+			color: #f00;
+			cursor: pointer;
+			display: inline-block;
+			padding: 5px;
+			margin-left: 10px;
+		}
+		#addFormButton {
+			position: fixed;
+			bottom: 60px;
+			right: 0;
+			margin: 20px;
+		}
+		#submitButton{
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<h1>新增輪胎資訊</h1>
+	<form>
+		<label for="carPlate">車號：</label>
+		<input type="text" name="name[]" required>
+		<label for="pressure">胎壓：</label>
+		<input type="text" name="pressure[]" required>
+		<label for="depth">胎深：</label>
+		<input type="text" name="depth[]" required>
+	</form>
+	
+	<button id="addFormButton" type="button" onclick="addForm()">新增欄位</button> <!-- <i class="fas fa-plus"> -->
+	<button id="submitButton" type="submitButton"><i class="fas fa-paper-plane"></i> 送出</button>
+	
+	<script>
+		function addForm() {
+			var form = document.createElement("form");
+			form.innerHTML = "<label for='carPlate'>車號</label><input type='text' name='name' required><labelfor='pressure'>胎壓：</label><input type='text' name='pressure' required><label for='depth'>胎深：</label><input type='text' name='depth' required>";
+			document.body.insertBefore(form, document.getElementById("addFormButton"));
+			document.body.insertBefore(form, document.getElementById("submitButton"));
+		}
+	</script>
+</body>
+</html>
