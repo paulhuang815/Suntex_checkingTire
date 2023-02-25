@@ -76,9 +76,9 @@
 		<input type="text" name="pressure[]" required>
 		<label for="depth">胎深：</label>
 		<input type="text" name="depth[]" required>
-		<input type="file" id="image" name="image" accept="image/*"><br><br>
+		<input type="file" id="image" name="image" multiple accept="image/*"><br><br>
 	</form>
-	
+
 	<button id="addFormButton" type="button" onclick="addForm()">新增欄位</button>
 	<button id="submitButton" type="submitButton"><i class="fas fa-paper-plane"></i> 送出</button>
 	
@@ -88,25 +88,6 @@
 			form.innerHTML = "<label for='carPlate'>車號</label><input type='text' name='name' required><labelfor='pressure'>胎壓：</label><input type='text' name='pressure' required><label for='depth'>胎深：</label><input type='text' name='depth' required>";
 			document.body.insertBefore(form, document.getElementById("addFormButton"));
 			document.body.insertBefore(form, document.getElementById("submitButton"));
-		}
-		function attachImage() {
-			const input = document.createElement('input');
-			input.type = 'file';
-			input.accept = 'image/*';
-			input.capture = 'camera';
-			input.onchange = () => {
-				const files = input.files;
-				if (files.length === 0) return;
-				const file = files[0];
-				const reader = new FileReader();
-				reader.onload = function(event) {
-					const img = document.createElement('img');
-					img.src = event.target.result;
-					document.body.appendChild(img);
-				};
-				reader.readAsDataURL(file);
-			};
-			input.click();
 		}
 	</script>
 </body>
